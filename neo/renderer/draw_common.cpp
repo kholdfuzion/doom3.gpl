@@ -1152,7 +1152,7 @@ static void RB_T_Shadow( const drawSurf_t *surf ) {
 		GL_Cull( CT_BACK_SIDED );
 		RB_DrawShadowElementsWithCounters( tri, numIndexes );
 	}
-
+	else {
 	// traditional depth-pass stencil shadows
 	qglStencilOp( GL_KEEP, GL_KEEP, tr.stencilIncr );
 	GL_Cull( CT_FRONT_SIDED );
@@ -1161,6 +1161,7 @@ static void RB_T_Shadow( const drawSurf_t *surf ) {
 	qglStencilOp( GL_KEEP, GL_KEEP, tr.stencilDecr );
 	GL_Cull( CT_BACK_SIDED );
 	RB_DrawShadowElementsWithCounters( tri, numIndexes );
+	}
 }
 
 /*
