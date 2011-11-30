@@ -1143,14 +1143,12 @@ static void RB_T_Shadow( const drawSurf_t *surf ) {
 		return;
 	}
 
-	// patent-free work around
+	// reverse stencil shadows
 	if ( !external ) {
-		// "preload" the stencil buffer with the number of volumes
-		// that get clipped by the near or far clip plane
-		qglStencilOp( GL_KEEP, tr.stencilDecr, tr.stencilDecr );
+		qglStencilOp( GL_KEEP, tr.stencilDecr, GL_KEEP );
 		GL_Cull( CT_FRONT_SIDED );
 		RB_DrawShadowElementsWithCounters( tri, numIndexes );
-		qglStencilOp( GL_KEEP, tr.stencilIncr, tr.stencilIncr );
+		qglStencilOp( GL_KEEP, tr.stencilIncr, GL_KEEP );
 		GL_Cull( CT_BACK_SIDED );
 		RB_DrawShadowElementsWithCounters( tri, numIndexes );
 	}
