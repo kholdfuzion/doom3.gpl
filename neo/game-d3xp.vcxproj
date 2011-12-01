@@ -277,6 +277,7 @@
       <PrecompiledHeaderFile>../idlib/precompiled.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>../idlib/precompiled.h</ForcedIncludeFiles>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
